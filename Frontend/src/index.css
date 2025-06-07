@@ -1,0 +1,25 @@
+/* Import custom Google Fonts: Outfit and Playfair */
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
+
+/* Global font family set to 'Outfit' */
+
+* {
+  font-family: "outfit", sans-serif;
+}
+
+/* Import Tailwind CSS layers */
+
+@import "tailwindcss";
+
+/* Hide scrollbar for WebKit browsers (e.g., Chrome, Safari) */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Primary Color */
+
+@theme{
+  --color-primary : #5044e5;
+}
