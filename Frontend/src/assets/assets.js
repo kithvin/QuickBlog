@@ -31,7 +31,34 @@ import dashboard_icon_1 from './dashboard_icon_1.svg'
 import dashboard_icon_2 from './dashboard_icon_2.svg'
 import dashboard_icon_3 from './dashboard_icon_3.svg'
 import dashboard_icon_4 from './dashboard_icon_4.svg'
+import starIconFilled from './starIconFilled.svg'
+import starIconOutlined from './starIconOutlined.svg'
 
+import team1 from './team1.jpg'
+import team2 from './team2.jpg'
+import team3 from './team3.jpg'
+
+import aboutHero from './aboutHero.jpg';
+import aboutMission from './aboutMission.png';
+
+import testimonials1 from './testimonials1.jpg'
+import testimonials2 from './testimonials2.jpg'
+import testimonials3 from './testimonials3.jpg'
+import testimonials4 from './testimonials4.jpg'
+import testimonials5 from './testimonials5.jpg'
+import testimonials6 from './testimonials6.jpg'
+import testimonials7 from './testimonials7.jpg'
+import testimonials8 from './testimonials8.jpg'
+import testimonials9 from './testimonials9.jpg'
+import testimonials10 from './testimonials10.jpeg'
+import testimonials11 from './testimonials11.jpg'
+import testimonials12 from './testimonials12.jpg'
+
+import techIcon from './techIcon.png';
+import healthIcon from './healthIcon.png';
+import travelIcon from './travelIcon.png';
+import foodIcon from './foodIcon.png';
+import expHero from './expHero.png';
 
 export const assets = {
     facebook_icon,
@@ -57,6 +84,35 @@ export const assets = {
     dashboard_icon_2,
     dashboard_icon_3,
     dashboard_icon_4,
+
+    team1,
+    team2,
+    team3,
+    aboutHero,
+    aboutMission,
+    starIconFilled,
+    starIconOutlined,
+
+    testimonials1,
+    testimonials2,
+    testimonials3,
+    testimonials4,
+    testimonials5,
+    testimonials6,
+    testimonials7,
+    testimonials8,
+    testimonials9,
+    testimonials10,
+    testimonials11,
+    testimonials12,
+
+    techIcon,
+    healthIcon,
+    travelIcon,
+    foodIcon,
+    expHero
+    
+    
 }
 export const blogCategories = ['All', 'Technology', 'Startup', 'Lifestyle', 'Finance']
 
