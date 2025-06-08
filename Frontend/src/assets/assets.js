@@ -139,7 +139,7 @@ export const blog_data = [
         "updatedAt": "2025-04-24T08:30:47.920Z",
         "__v": 0,
         "isPublished": true,
-        "subTitle": "Creating an effective <strong>startup roadmap"
+        "subTitle": "Creating an effective startup roadmap"
     },
     {
         "_id": "6805f2aad8f584af5da78d3b",

@@ -4,6 +4,7 @@ import { div } from "motion/react-client";
 
 const Footer = () => {
   return (
+    <div>
     <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-primary/3">
       <div
         className="flex flex-col md:flex-row items-start justify-between
@@ -37,6 +38,7 @@ const Footer = () => {
       >
         Copyright 2025 © QuickBlog. All Right Reserved.
       </p>
+    </div>
     </div>
   );
 };
