@@ -103,8 +103,8 @@ const Experiences = () => {
 
         <section className="mb-20">
           <Title
-            title="Latest Blog Posts"
-            subTitle="Catch up on the latest stories, insights, and ideas our amazing writers are sharing today."
+            title="QuickBlog App Review"
+            subTitle="Discover new stories and insights from our writers."
             align="center"
           />
 
