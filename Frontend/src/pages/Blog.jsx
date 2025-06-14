@@ -84,9 +84,9 @@ const Blog = () => {
         </h2>
         <div className="inline-flex items-center gap-2 py-1 px-4 rounded-full mb-8 border border-primary/20 bg-primary/10 font-medium text-primary mt-4">
           <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-            <span className="text-xs font-bold">MB</span>
+            <span className="text-xs font-bold">QB</span>
           </div>
-          <span>Michael Brown</span>
+          <span>QuickBlog</span>
         </div>
       </div>
 
