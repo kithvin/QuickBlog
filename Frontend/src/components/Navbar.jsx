@@ -1,3 +1,72 @@
+// import React, { useState } from "react";
+// import { assets } from "../assets/assets";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { motion } from "framer-motion";
+// import { useAppContext } from "../context/AppContext";
+
+// const Navbar = () => {
+//   const location = useLocation();
+//   const {navigate,token} = useAppContext();
+//   const [activeLink, setActiveLink] = useState(location.pathname);
+
+//   const navLinks = [
+//     { name: "Home", path: "/" },
+//     { name: "Experiences", path: "/experiences" },
+//     { name: "About", path: "/about" },
+//   ];
+
+//   return (
+//     <nav className="flex justify-between items-center py-5 mx-8 sm:mx-20 xl:mx-32">
+//       {/* Logo */}
+//       <Link to="/">
+//         <img
+//           src={assets.logo}
+//           alt="logo"
+//           className="w-32 sm:w-44 cursor-pointer"
+//         />
+//       </Link>
+
+//       {/* Centered Navigation Links */}
+//       <div className="flex-1 flex justify-center">
+//         <div className="flex gap-4 sm:gap-8">
+//           {navLinks.map((link) => (
+//             <div key={link.name} className="relative">
+//               <Link
+//                 to={link.path}
+//                 onClick={() => setActiveLink(link.path)}
+//                 className={`cursor-pointer text-gray-700 ${
+//                   activeLink === link.path && "text-white px-4 pt-0.5"
+//                 } hover:text-primary transition-colors`}
+//               >
+//                 {link.name}
+//                 {activeLink === link.path && (
+//                   <motion.div
+//                     layoutId="underline"
+//                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
+//                     className="absolute left-0 right-0 top-0 h-7 -z-1 bg-primary rounded-full"
+//                   />
+//                 )}
+//               </Link>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Login Button */}
+//       <button
+//         onClick={() => navigate("/admin")}
+//         type="button"
+//         className="flex items-center gap-2 rounded-full font-semibold cursor-pointer bg-primary text-white px-10 py-2.5"
+//       >
+//         {token ? 'Dashboard' : 'login'}
+//         <img src={assets.arrow} alt="arrow" className="w-3" />
+//       </button>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,8 +75,9 @@ import { useAppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const location = useLocation();
-  const {navigate,token} = useAppContext();
+  const { navigate, token } = useAppContext();
   const [activeLink, setActiveLink] = useState(location.pathname);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -16,24 +86,43 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex justify-between items-center py-5 mx-8 sm:mx-20 xl:mx-32">
-      {/* Logo */}
-      <Link to="/">
-        <img
-          src={assets.logo}
-          alt="logo"
-          className="w-32 sm:w-44 cursor-pointer"
-        />
-      </Link>
+    <nav className="flex flex-col sm:flex-row justify-between items-center py-4 px-4 sm:mx-8 md:mx-20 xl:mx-32 gap-4 sm:gap-0">
+      {/* Logo and Mobile Menu Button */}
+      <div className="flex justify-between items-center w-full sm:w-auto">
+        <Link to="/">
+          <img
+            src={assets.logo}
+            alt="logo"
+            className="w-28 sm:w-32 md:w-44 cursor-pointer"
+          />
+        </Link>
+        <button
+          className="sm:hidden text-gray-700"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
 
-      {/* Centered Navigation Links */}
-      <div className="flex-1 flex justify-center">
-        <div className="flex gap-4 sm:gap-8">
+      {/* Navigation Links - Hidden on mobile unless menu is open */}
+      <div className={`${mobileMenuOpen ? 'flex' : 'hidden'} sm:flex flex-1 justify-center order-last sm:order-none w-full sm:w-auto mt-4 sm:mt-0`}>
+        <div className="flex gap-3 sm:gap-4 md:gap-8 flex-wrap justify-center">
           {navLinks.map((link) => (
             <div key={link.name} className="relative">
               <Link
                 to={link.path}
-                onClick={() => setActiveLink(link.path)}
+                onClick={() => {
+                  setActiveLink(link.path);
+                  setMobileMenuOpen(false);
+                }}
                 className={`cursor-pointer text-gray-700 ${
                   activeLink === link.path && "text-white px-4 pt-0.5"
                 } hover:text-primary transition-colors`}
@@ -56,7 +145,7 @@ const Navbar = () => {
       <button
         onClick={() => navigate("/admin")}
         type="button"
-        className="flex items-center gap-2 rounded-full font-semibold cursor-pointer bg-primary text-white px-10 py-2.5"
+        className="text-sm sm:text-base flex items-center gap-2 rounded-full font-semibold cursor-pointer bg-primary text-white px-6 sm:px-8 md:px-10 py-2 sm:py-2.5"
       >
         {token ? 'Dashboard' : 'login'}
         <img src={assets.arrow} alt="arrow" className="w-3" />
