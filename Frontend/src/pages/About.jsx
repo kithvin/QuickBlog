@@ -6,6 +6,8 @@ import Navbar from "../components/Navbar";
 
 const About = () => {
   const navigate = useNavigate();
+  
+  // Team members data
 
   const teamMembers = [
     {
@@ -47,7 +49,9 @@ const About = () => {
       />
       <Navbar />
       <div className="px-4 md:px-16 pt-28 pb-12 min-h-screen font-outfit">
+
         {/* Hero Section */}
+
         <div className="relative h-80 md:h-120 rounded-xl overflow-hidden mb-16">
           <img
             src={assets.aboutHero}
@@ -62,6 +66,7 @@ const About = () => {
         </div>
 
         {/* About Description */}
+
         <div className="grid md:grid-cols-2 gap-12 mb-20">
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold">Empowering Every Voice</h2>
@@ -106,6 +111,7 @@ const About = () => {
         </div>
 
         {/* Stats */}
+
         <div className="bg-gray-50 py-12 rounded-xl mb-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((item, i) => (
@@ -118,6 +124,7 @@ const About = () => {
         </div>
 
         {/* Why Choose Us */}
+
         <div className="mb-20">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
             Why Use Our Blog App?
@@ -157,6 +164,7 @@ const About = () => {
         </div>
 
         {/* Team Section */}
+
         <div className="mb-20">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
             Meet Our Team
@@ -185,6 +193,7 @@ const About = () => {
         </div>
 
         {/* Call To Action */}
+        
         <div className="bg-primary text-white text-center py-8 rounded-xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to share your story?

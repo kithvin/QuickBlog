@@ -1,5 +1,7 @@
 import multer from "multer";
 
-const upload = multer({storage:multer.diskStorage({})});
+// Configure multer to store files on disk with default settings
 
-export default upload;
+const upload = multer({storage:multer.diskStorage({})}); // Use default disk storage
+
+export default upload; // Export the upload middleware

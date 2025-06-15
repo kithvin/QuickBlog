@@ -5,11 +5,19 @@ import { div } from "motion/react-client";
 const Footer = () => {
   return (
     <div>
+
+    {/* Footer container with padding and background color */}
+
     <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-primary/3">
+
+    {/* Top section with logo and footer links, flex layout for responsiveness */}
       <div
         className="flex flex-col md:flex-row items-start justify-between
       gap-10 py-10 border-b border-gray-500/30 text-gray-500"
       >
+
+      {/* Logo and description */}
+
         <div>
           <img src={assets.logo} alt="logo" className="w-32 sm:w-44" />
           <p className="max-w-[410px] mt-6 text-justify">
@@ -18,11 +26,17 @@ const Footer = () => {
             posts easily while fostering a sense of connection among its users.
           </p>
         </div>
+
+      {/* Footer link sections mapped from footer_data */}
+
       <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
       {footer_data.map((section,index)=>(
         <div key={index}>
           <h3 className="font-semibold text-base text-gray-900
           md:mb-5 mb-2">{section.title}</h3>
+        
+        {/* Links list */}
+
           <ul className="text-sm space-y-1">{section.links.map((link, i)=>(
             <li key={i}>
               <a href="#" className="hover:underline transition">{link}</a>
@@ -32,6 +46,9 @@ const Footer = () => {
       ))}
       </div>
       </div>
+      
+    {/* Bottom copyright text */}
+
       <p
         className="py-4 text-center
       text-sm md:text-base text-gray-500/80"

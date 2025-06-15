@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { blog_data } from "../assets/assets";
 import BlogTableitem from "../components/admin/BlogTableitem";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
+
+// Admin page to list and manage all blogs
 
 const ListBlog = () => {
 
   const [blogs, setBlogs] = useState([]);
   const {axios} = useAppContext();
 
+  // Fetch blogs from API
   const fetchBlogs = async () => {
     try {
       const {data} = await axios.get('/api/admin/blogs')
@@ -22,6 +24,8 @@ const ListBlog = () => {
     }
   };
 
+  // Load blogs on component mount
+
   useEffect(() => {
     fetchBlogs();
   }, []);
@@ -29,10 +33,16 @@ const ListBlog = () => {
   return (
     <div className="flex-1 pt-5 px-5 sm:pt-12 sm:pl-16 bg-blue-50/50">
       <h1>All blogs</h1>
+
+    {/* Blogs table container */}
+
       <div
         className="relative h-4/5 max-w-4xl overflow-x-auto shadow rounded-lg
       scrollbar-hide bg-white mt-8"
       >
+
+      {/* Blogs table */}
+
         <table className="w-full text-sm text-gray-500">
           <thead className="text-xs text-gray-600 text-left uppercase">
             <tr>
@@ -53,6 +63,9 @@ const ListBlog = () => {
               </th>
             </tr>
           </thead>
+
+        {/* Blogs list */}
+        
           <tbody>
             {blogs.map((blog, index) => {
               return (

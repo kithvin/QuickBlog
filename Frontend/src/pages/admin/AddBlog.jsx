@@ -6,20 +6,32 @@ import {useAppContext} from '../../context/AppContext';
 import toast from "react-hot-toast";
 import { parse } from "marked";
 
+/**
+ * Component for adding new blog posts
+ * Includes rich text editor and AI content generation
+ */
+
 const AddBlog = () => {
+
+// State management
 
   const {axios} = useAppContext();
   const [isAdding, setIsAdding] = useState(false);
   const [loading, setLoading] = useState(false);
 
+// Editor references
+
   const editorRef = useRef(null);
   const quillRef = useRef(null);
 
+// State management
   const [image, setImage] = useState(false);
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
   const [category, setCategory] = useState("Startup");
   const [isPublished, setIsPublished] = useState(false);
+
+// Generate blog content using AI
 
   const generateContent = async ()=>{
       if(!title) return toast.error('Please enter a totle');
@@ -38,6 +50,8 @@ const AddBlog = () => {
       }
   }
 
+// Handle form submission
+
   const onSubmitHandler = async (e) => {
     
     try {
@@ -54,6 +68,7 @@ const AddBlog = () => {
       const {data} = await axios.post('/api/blog/add', formData);
       if(data.success){
         toast.success(data.message);
+        // Reset form
         setImage(false);
         setTitle('');
         quillRef.current.root.innerHTML = ''
@@ -86,6 +101,9 @@ const AddBlog = () => {
         className="bg-white w-full max-w-3xl p-4 md:p-10 sm:m-10 shadow
       rounded mt-2"
       >
+
+      {/* Thumbnail upload */}
+
         <p>Upload thumbnail</p>
         <label htmlFor="image">
           <img
@@ -102,6 +120,8 @@ const AddBlog = () => {
           />
         </label>
 
+      {/* Blog title */}
+
         <p className="mt-4">Blog title</p>
         <input
           type="text"
@@ -113,6 +133,8 @@ const AddBlog = () => {
           value={title}
         />
 
+      {/* Subtitle */}
+
         <p className="mt-4">Subtitle</p>
         <input
           type="text"
@@ -123,6 +145,8 @@ const AddBlog = () => {
           onChange={(e) => setSubTitle(e.target.value)}
           value={subTitle}
         />
+
+      {/* Rich text editor */}
 
         <p className="mt-4">Blog Description</p>
         <div className="max-w-lg h-74 pb-16 sm:pb-10 pt-2 relative">
@@ -138,6 +162,9 @@ const AddBlog = () => {
         text-white bg-black/70 px-4 py-1.5 rounded
         hover:underline cursor-pointer">Generate with AI</button>
         </div>
+
+      {/* Category selection */}
+
       <p className="mt-4">Blog Category</p>
       <select onChange={e => setCategory(e.target.value)}
       name="category" className="mt-2 px-3 py-2 border text-gray-500
@@ -148,11 +175,16 @@ const AddBlog = () => {
         })}
       </select>
 
+      {/* Publish toggle */}
+
       <div className="flex gap-2 mt-6">
         <p>Publish Now</p>
         <input type="checkbox" checked={isPublished} className="scale-125
         cursor-pointer" onChange={e => setIsPublished(e.target.checked)}/>
       </div>
+
+    {/* Submit button */}
+    
     <button disabled={isAdding}
      type="submit" className="mt-8 w-40 h-10 bg-primary text-white
     rounded cursor-pointer text-sm">{isAdding ? 'Adding...' : 'Add Blog'}</button>

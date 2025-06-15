@@ -14,13 +14,24 @@ import 'quill/dist/quill.snow.css';
 import { Toaster } from "react-hot-toast";
 import { useAppContext } from "./context/AppContext";
 
+/**
+ * Main application router
+ * Handles all route definitions and authentication checks
+ */
+
 const App = () => {
 
-  const {token} = useAppContext();
+  const {token} = useAppContext(); // Authentication token
 
   return (
     <>
+
+    {/* Toast notifications */}
+
     <Toaster />
+
+    {/* Application routes */}
+
       <Routes>
 
         <Route path="/" element={<Home />} />
@@ -28,6 +39,8 @@ const App = () => {
         <Route path="/blog/:id" element={<Blog />} />
         <Route path="/experiences" element={<Experiences />} />
         <Route path="/about" element={<About />} />
+      
+      {/* Protected admin routes */}
 
         <Route path="/admin" element={token ? <Layout/> : <Login/>}>
           <Route index element={<Dashboard/>}/>

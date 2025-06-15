@@ -4,6 +4,7 @@ import Blog from "../models/Blog.js";
 import Comment from "../models/Comment.js";
 import main from "../configs/gemini.js";
 
+// Add a new blog
 export const addBlog = async (req, res) => {
   try {
     const { title, subTitle, description, category, isPublished } = JSON.parse(
@@ -15,17 +16,17 @@ export const addBlog = async (req, res) => {
     if (!title || !description || !category || !imageFile) {
       return res.json({ success: false, message: "Missing required fields" });
     }
-
+    // Read the uploaded image file
     const fileBuffer = fs.readFileSync(imageFile.path);
 
-    // CHANGED: Use imagekit.upload() instead of ImageKit.upload()
+     // Upload image to ImageKit
     const responce = await imagekit.upload({
       file: fileBuffer,
       fileName: imageFile.originalname,
-      folder: "/blogs",
+      folder: "/blogs", // Save in 'blogs' folder
     });
 
-    // CHANGED: Use imagekit.url() instead of ImageKit.url()
+    // Optimize image using transformations
     const optimizedImageURL = imagekit.url({
       path: responce.filePath,
       transformation: [
@@ -37,6 +38,7 @@ export const addBlog = async (req, res) => {
 
     const image = optimizedImageURL;
 
+    // Save blog to database
     await Blog.create({
       title,
       subTitle,
@@ -58,6 +60,7 @@ export const addBlog = async (req, res) => {
   }
 };
 
+// Get all published blogs
 export const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find({ isPublished: true });
@@ -67,6 +70,7 @@ export const getAllBlogs = async (req, res) => {
   }
 };
 
+// Get blog details by ID
 export const getBlogById = async (req, res) => {
   try {
     const { blogId } = req.params;
@@ -80,12 +84,14 @@ export const getBlogById = async (req, res) => {
   }
 };
 
+// Delete a blog and its comments
 export const deleteBlogById = async (req, res) => {
   try {
+    // Delete blog by ID
     const { id } = req.body;
     await Blog.findByIdAndDelete(id);
 
-    // Delete all Comments assocoated with the blog
+    // Delete all comments linked to this blog
 
     await Comment.deleteMany({ blog: id });
 
@@ -95,10 +101,12 @@ export const deleteBlogById = async (req, res) => {
   }
 };
 
+// Toggle publish/unpublish blog
 export const togglePublish = async (req, res) => {
   try {
     const { id } = req.body;
     const blog = await Blog.findById(id);
+     // Toggle the isPublished value
     blog.isPublished = !blog.isPublished;
     await blog.save();
     res.json({ success: true, message: "Blog Status updated" });
@@ -107,10 +115,12 @@ export const togglePublish = async (req, res) => {
   }
 };
 
+// Add a comment to a blog (needs admin approval)
 export const addComment = async (req, res) => {
   try {
     const { blog, name, content } = req.body;
-
+  
+  // Create a new comment
     await Comment.create({ blog, name, content });
 
     res.json({ success: true, message: "Comment added for review" });
@@ -119,9 +129,11 @@ export const addComment = async (req, res) => {
   }
 };
 
+// Get approved comments for a specific blog
 export const getBlogComment = async (req, res) => {
   try {
     const { blogId } = req.body;
+  // Find approved comments for the blog
     const comments = await Comment.find({
       blog: blogId,
       isApproved: true,
@@ -132,10 +144,11 @@ export const getBlogComment = async (req, res) => {
   }
 };
 
+// Generate blog content using Gemini AI
 export const generateContent = async (req,res) => {
   try {
     const { prompt } = req.body;
-
+  // Send prompt to Gemini to generate content
    const content =  await main(
       prompt + "Generate a blog content for this topic in simple text format"
     );

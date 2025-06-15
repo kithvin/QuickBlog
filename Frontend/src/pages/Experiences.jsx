@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+// Main experiences page showing blog categories and testimonials
+
 const Experiences = () => {
   const navigate = useNavigate();
 
-  // Experience categories data
+// Blog category data
 
   const categories = [
     {
@@ -49,6 +51,7 @@ const Experiences = () => {
       <Navbar />
 
       <div className="pt-28 md:pt-35 px-4 md:px-16 lg:px-24 xl:px-32 min-h-screen">
+
         {/* Hero Section */}
 
         <div className="relative h-100 rounded-xl overflow-hidden mb-16">

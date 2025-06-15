@@ -1,28 +1,35 @@
 import React, { useState } from "react";
 import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
-import {useAppContext} from '../../context/AppContext';
+import {useAppContext} from '../../context/AppContext'; // App context for axios & token
 import toast from "react-hot-toast";
 
 const Login = () => {
-  
+
+  // Get axios and token setter from context
+
   const {axios, setToken} = useAppContext();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [email, setEmail] = useState(""); // Email state
+  const [password, setPassword] = useState(""); // Password state
   
+  // Handle form submit
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+    // Send login data to backend
       const {data} = await axios.post('/api/admin/login',{email,password});
       if(data.success){
+      // If success, save token
         setToken(data.token)
         localStorage.setItem('token',data.token);
         axios.defaults.headers.common['Authorization'] = data.token;
       }
       else{
-        toast.error(data.message);
+        toast.error(data.message); // Show error message
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message); // Show error
     }
   };
 
@@ -38,6 +45,8 @@ const Login = () => {
               Enter your credentials to access the Admin panel
             </p>
           </div>
+
+          {/* Login form */}
 
           <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div className="space-y-2">
@@ -57,6 +66,8 @@ const Login = () => {
               </div>
             </div>
 
+          {/* Password input */}
+
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Password
@@ -74,6 +85,8 @@ const Login = () => {
               </div>
             </div>
 
+          {/* Submit button */}
+          
             <button
               type="submit"
               className="w-full py-3 px-4 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg shadow-md transition duration-200 cursor-pointer flex items-center justify-center gap-2"

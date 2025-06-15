@@ -10,6 +10,8 @@ const CommentTableitem = ({ comment, fetchComment }) => {
 
   const {axios} = useAppContext();
 
+  // Approve comment
+
   const approveComment = async ()=>{
     try {
       const {data} = await axios.post('/api/admin/approve-comment', {id:_id})
@@ -23,6 +25,8 @@ const CommentTableitem = ({ comment, fetchComment }) => {
       toast.error(error.message);
     }
   }
+
+  // Delete comment
 
   const deleteComment = async ()=>{
     try {
@@ -45,6 +49,9 @@ const CommentTableitem = ({ comment, fetchComment }) => {
 
   return ( 
   <tr className="order-y border-gray-300">
+
+    {/* Comment Info */}
+
    <td className="px-6 py-4">
     <b className="font-medium text-gray-600">Blog</b> : {blog.title}
     <br />
@@ -53,9 +60,15 @@ const CommentTableitem = ({ comment, fetchComment }) => {
     <br />
     <b>Comment</b> : {comment.content}
    </td>
+
+   {/* Date */}
+
    <td className="px-6 py-4 max-sm:hidden">
     {BlogDate.toLocaleDateString()}
    </td>
+
+    {/* Actions */}
+    
    <td className="px-6 py-4">
     <div className="inline-flex items-center gap-4">
         {!comment.isApproved ? 

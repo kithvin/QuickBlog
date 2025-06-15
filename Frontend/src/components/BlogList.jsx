@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { blog_data, blogCategories } from "../assets/assets";
+import { blogCategories } from "../assets/assets";
 import { motion } from "motion/react";
 import BlogCard from "./BlogCard";
 import {useAppContext} from "../context/AppContext"
 
 const BlogList = () => {
-  const [menu, setMenu] = useState("All");
-  const { blogs, input } = useAppContext();
+  const [menu, setMenu] = useState("All"); // State to track selected category filter
+  const { blogs, input } = useAppContext(); // Get blogs and search input from context
 
+  // Filter blogs based on search input matching title or category
   const filteredBlogs = () => {
     if (input === "") {
       return blogs;
@@ -21,6 +22,7 @@ const BlogList = () => {
 
   return (
     <div>
+    {/* Category filter buttons */}
       <div className="flex justify-center gap-4 sm:gap-8 my-10 relative">
         {blogCategories.map((item) => (
           <div key={item} className="relative">
@@ -30,6 +32,7 @@ const BlogList = () => {
                 menu === item && "text-white px-4 pt-0.5"
               }`}
             >
+          {/* Animated underline for selected category */}
               {item}
               {menu === item && (
                 <motion.div
@@ -43,6 +46,8 @@ const BlogList = () => {
           </div>
         ))}
       </div>
+      
+    {/* Blog cards grid */}
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4
       gap-8 mb-24 mx-8 sm:mx-16 xl:mx-40"

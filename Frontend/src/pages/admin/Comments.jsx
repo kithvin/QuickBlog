@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { comments_data } from "../../assets/assets";
 import CommentTableitem from "../../components/admin/CommentTableitem";
 import {useAppContext} from '../../context/AppContext';
 import toast from "react-hot-toast";
 
+/**
+ * Admin Comments Management Component
+ * Displays and filters blog comments with approval controls
+ */
+
 const Comments = () => {
+
+  // State for storing comments and filter selection
+
   const [comments, setComments] = useState([]);
-  const [filter, setFilter] = useState([]);
+  const [filter, setFilter] = useState([]); // Tracks current filter ('Approved' or 'Not Approve')
+
+  // Access axios instance from app context
 
   const {axios} = useAppContext();
+
+  // Fetch comments from API
 
   const fetchComments = async () => {
     try {
       const {data} = await axios.get('/api/admin/comments');
+
+      // Update state if successful, show error if not
+
       data.success ? setComments(data.comments) : toast.error(data.message);
     } catch (error) {
       toast.error(error.message);
     }
   };
+
+  // Load comments on component mount
 
   useEffect(() => {
     fetchComments();
@@ -37,6 +53,8 @@ const Comments = () => {
             Approved
           </button>
 
+        {/* Not Approved comments filter button */}
+
           <button onClick={()=> setFilter('Not Approved')}
             className={`shadow-custom-sm border rounded-full px-4
         py-1 cursor-pointer text-xs ${
@@ -47,6 +65,9 @@ const Comments = () => {
           </button>
         </div>
       </div>
+
+      {/* Comments table */}
+
     <div className="relative h-4/5 max-w-3xl overflow-x-auto mt-4 bg-white
     shadow rounded-lg scrollbar-hide">
       <table className="w-full text-sm text-gray-500">
@@ -59,6 +80,9 @@ const Comments = () => {
             Action</th>
           </tr>
         </thead>
+
+      {/* Filter and map through comments to render table rows */}
+
       <tbody>
         {comments.filter((comment)=>{
             if(filter === "Approved") return comment.isApproved === true;
