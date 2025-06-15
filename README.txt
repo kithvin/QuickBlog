@@ -14,7 +14,7 @@ of blogging, from writing and editing to publishing and sharing.Overall, QuickBl
 enjoyable for everyone writers, readers, and managers alike. It’s a complete solution that helps you create, share, and grow 
 users blog with confidence.
 
-===========================================================================
+============================================================================================================================================
 
 🔥 Key Features
 
@@ -35,7 +35,7 @@ users blog with confidence.
 ✅ Comment Moderation – Approve/reject comments with one click
 🚀 Publish Control – Instantly publish or unpublish posts
 
-===========================================================================
+============================================================================================================================================
 
 🛠️ Tech Stack
 
@@ -49,7 +49,7 @@ users blog with confidence.
 
 🤖 AI Integration : OpenAI API
 
-===========================================================================
+============================================================================================================================================
 
 🔧 Installed Dependencies
 
@@ -74,7 +74,7 @@ users blog with confidence.
 • Nodemon → npm install -D nodemon (Dev server)
 • ESLint → npm install -D eslint (Code linting)
 
-===========================================================================
+============================================================================================================================================
 
 ▶️ How to Run the QuickBlog Project
 
@@ -122,7 +122,7 @@ cd ../server && npm run dev  # 🟢 Running on http://localhost:5000
 
 cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
-===========================================================================
+============================================================================================================================================
 
 🌐 Deployment
 
