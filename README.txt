@@ -132,9 +132,3 @@ cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
 ADMIN_EMAIL = "admin@example.com"
 ADMIN_PASSWORD = "test@1234"
-
-
-
-
-
-
