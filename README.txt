@@ -1,24 +1,14 @@
 🚀 QuickBlog – The Next-Gen AI-Powered Blogging Experience ✨
 
-QuickBlog is a smart blogging platform built using the MERN stack (MongoDB, Express.js, React, and Node.js) 
-that brings together human creativity and AI technology. It helps writers create high-quality content 
-by offering real-time suggestions, ideas, and structure tips, making the writing process smoother and more 
-enjoyable. Readers get a personalized experience on QuickBlog, with articles recommended based on their interests 
-and habits. Interactive features like social highlighting and easy navigation make reading more engaging and fun. 
-For content managers and administrators, QuickBlog provides strong tools for control and organization. With detailed 
-analytics and flexible permission settings, it’s easy to manage blogs and connect with audiences more effectively.
+QuickBlog is a smart blogging platform built using the MERN stack (MongoDB, Express.js, React, and Node.js) that brings together human creativity and AI technology. It helps writers create high-quality content by offering real-time suggestions, ideas, and structure tips, making the writing process smoother and more enjoyable. Readers get a personalized experience on QuickBlog, with articles recommended based on their interests and habits. Interactive features like social highlighting and easy navigation make reading more engaging and fun. For content managers and administrators, QuickBlog provides strong tools for control and organization. With detailed analytics and flexible permission settings, it’s easy to manage blogs and connect with audiences more effectively.
 
-QuickBlog is designed to be fast and user friendly on any device, whether user on a computer or a phone. Its clean, 
-responsive design ensures that everyone can use it easily, no matter where they are. The platform supports every step 
-of blogging, from writing and editing to publishing and sharing.Overall, QuickBlog makes blogging smarter, easier, and more 
-enjoyable for everyone writers, readers, and managers alike. It’s a complete solution that helps you create, share, and grow 
-users blog with confidence.
+QuickBlog is designed to be fast and user friendly on any device, whether user on a computer or a phone. Its clean, responsive design ensures that everyone can use it easily, no matter where they are. The platform supports every step of blogging, from writing and editing to publishing and sharing. Overall, QuickBlog makes blogging smarter, easier, and more enjoyable for everyone writers, readers, and managers alike. It’s a complete solution that helps you create, share, and grow users blog with confidence.
 
-=============================================================================================================================
+============================================================================================================================= 
 
 🔥 Key Features
 
-* For Content Creators
+*  For Content Creators
 
 🤖 AI-Powered Writing – Generate blog drafts instantly with OpenAI
 ✍️ Rich Text Editor – Beautiful formatting 
@@ -35,6 +25,7 @@ users blog with confidence.
 ✅ Comment Moderation – Approve/reject comments with one click
 🚀 Publish Control – Instantly publish or unpublish posts
 
+
 =============================================================================================================================
 
 🛠️ Tech Stack
@@ -48,6 +39,7 @@ users blog with confidence.
 🍃 Database : MongoDB (Mongoose)
 
 🤖 AI Integration : OpenAI API
+
 
 =============================================================================================================================
 
@@ -73,6 +65,7 @@ users blog with confidence.
 
 • Nodemon → npm install -D nodemon (Dev server)
 • ESLint → npm install -D eslint (Code linting)
+
 
 =============================================================================================================================
 
@@ -122,6 +115,7 @@ cd ../server && npm run dev  # 🟢 Running on http://localhost:5000
 
 cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
+
 =============================================================================================================================
 
 🌐 Deployment
@@ -132,3 +126,4 @@ cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
 ADMIN_EMAIL = "admin@example.com"
 ADMIN_PASSWORD = "test@1234"
+
