@@ -120,7 +120,7 @@ cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
 🌐 Deployment
 
-• The project is live and accessible at: (https://quick-blog-rho.vercel.app/)
+• The project is live and accessible at: (https://quick-blog-f7u8.vercel.app/)
 
 # Admin Credentials
 
