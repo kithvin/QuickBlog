@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectDB from './configs/db.js';
 import adminRoutes from './routes/adminRoutes.js';
 import blogRouter from './routes/blogRoutes.js';
+import subscriptionRoute from "./routes/subscriptionRoute.js";
 
 const app = express();
 
@@ -22,6 +23,8 @@ app.use('/api/admin',adminRoutes);
 
 // Use blog routes under /api/blog path
 app.use('/api/blog',blogRouter);
+
+app.use("/api/subscribe", subscriptionRoute);
 
 // Start the server on specified port
 const PORT = process.env.PORT || 5000;
