@@ -302,11 +302,11 @@ export const dashboard_data = {
 export const footer_data = [
       {
           title: "Quick Links",
-          links: ["Home", "Best Sellers", "Offers & Deals", "Contact Us", "FAQs"]
+          links: ["Home", "Experiences", "About", "Blog Category", "Email Sub"]
       },
       {
           title: "Need Help?",
-          links: ["Delivery Information", "Return & Refund Policy", "Payment Methods", "Track your Order", "Contact Us"]
+          links: ["Fresh Content Published Weekly", "Expert Tips & How-To Guides", "Exclusive Subscriber-Only Articles", "Personalized Topic Recommendations", "Ad Free Reading Experience"]
       },
       {
           title: "Follow Us",
