@@ -45,20 +45,27 @@ QuickBlog is designed to be fast and user friendly on any device, whether user o
 
 🔧 Installed Dependencies
 
+Note: If an error shows while running the project, install all the necessary dependencies listed below.
+
 > Frontend Essentials
 
+• React → npm install react
 • Tailwind CSS → npm install tailwindcss @tailwindcss/vite
+• React Router DOM → npm install react-router-dom
 • React Icons → npm install react-icons
 • Axios → npm install axios (For API requests)
 • Quill Rich Text Editor → npm install quill
+• React Hot Toast → npm install react-hot-toast
 • Framer Motion → npm install framer-motion (Animations)
 
 > Backend Core
 
 • Express → npm install express (Server framework)
 • Mongoose → npm install mongoose (MongoDB ODM)
+• Dotenv → npm install dotenv
 • JSON Web Tokens → npm install jsonwebtoken (Authentication)
 • Multer → npm install multer (File uploads)
+• Nodemailer → npm install nodemailer
 • OpenAI → npm install openai (AI integration)
 
 > Dev Tools
@@ -93,11 +100,24 @@ QuickBlog is designed to be fast and user friendly on any device, whether user o
 
 - backend/.env
 
-# 🗄️ Database : MONGODB_URI="user_mongodb_connection_string"
+# 🗄️ Database
+MONGODB_URI="your_mongodb_connection_string"
 
-# 🤖 AI Services : OPENAI_API_KEY="user_openai_key" (gemini developer API)
+# 🤖 AI Services (Gemini Developer API)
+OPENAI_API_KEY="your_openai_key"
 
-# 🔐 Authentication : JWT_SECRET="user_jwt_secret"
+# 🔐 Authentication
+JWT_SECRET="your_jwt_secret"
+
+# 🖼️ ImageKit Configuration
+IMAGEKIT_PUBLIC_KEY="your_imagekit_public_key"
+IMAGEKIT_PRIVATE_KEY="your_imagekit_private_key"
+IMAGEKIT_URL_ENDPOINT="your_imagekit_url_endpoint"
+
+# 📧 Subscription Email Setup
+ADMIN_EMAIL="system_admin_email"
+ADMIN_PASS="system_admin_password"
+
 
 - frontend/.env
 
@@ -120,7 +140,7 @@ cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
 🌐 Deployment
 
-• The project is live and accessible at: (https://quick-blog-f7u8.vercel.app/)
+• The project is live and accessible at: (https://quickblog-git-main-kithvins-projects.vercel.app/)
 
 # Admin Credentials
 
