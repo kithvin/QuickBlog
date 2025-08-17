@@ -140,7 +140,7 @@ cd ../client && npm run dev  # 🌈 Running on http://localhost:3000
 
 🌐 Deployment
 
-• The project is live and accessible at: (https://quickblog-git-main-kithvins-projects.vercel.app/)
+• The project is live and accessible at (Frontend view) : (https://quickblog-git-main-kithvins-projects.vercel.app/)
 
 # Admin Credentials
 
